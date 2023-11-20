@@ -38,14 +38,12 @@ abstract public class AirPurifier
     private String model_name, serial_number;
     protected boolean current_state;
     protected boolean power;
-    private boolean dust_sensor;
 
 //    Scanner input;
 
     public AirPurifier(String model,String serial_number)
     {
         model_name = model;
-        if(!model_name.equals("diy model")) dust_sensor = true;
         this.serial_number = serial_number;
 //        Scanner input = new Scanner(System.in);
     }
@@ -105,7 +103,7 @@ abstract public class AirPurifier
     protected void close()
     {
         current_state = false;
-        System.out.println("Now your Air Purifier was turned off");
+        System.out.println("Now your Air Purifier turned off");
     }
 
     protected void clear_terminal(){System. out. print("\033[H\033[2J");}

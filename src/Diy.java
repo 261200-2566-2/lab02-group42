@@ -11,7 +11,7 @@ public class Diy extends AirPurifier
     protected void status()
     {
         clear_terminal();
-        System.out.println("Status\nFan speed: HIGH");
+        System.out.println("Status\nFan speed: HIGH\n");
     }
 
     @Override
@@ -23,15 +23,14 @@ public class Diy extends AirPurifier
 
         while (!check_input)
         {
-            System.out.println("what should you do: \nUnplug(1), Do nothing (2), turn off (3)");
+            System.out.println("what should you do: \nUnplug(1), turn off (2), Do nothing (else)");
             int result = 0;
             if(input_diy.hasNextInt()) result = input_diy.nextInt();
             switch (result)
             {
                 case 1 -> {close(); check_input = true; power_set(false);}
-                case 2 -> doNothing();
-                case 3 -> {close(); check_input = true;}
-                default -> System.out.println("1-3 in int only");
+                case 2 -> {close(); check_input = true;}
+                default -> doNothing();
             }
 
             input_diy.nextLine();
