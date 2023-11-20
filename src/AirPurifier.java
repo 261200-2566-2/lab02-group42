@@ -1,36 +1,3 @@
-//Design
-
-/*
-field :
-Model_name (string)
-Serial_Number (string)
-Power_Supply (bool)
-
-Dust_Value (int)
-Dust_sensor (bool)
-Switch_Sensor_on_off (bool)
-
-Mode (int 1-3 silent heal max)
-Fan_speed (string speed[] = {High Medium Low})\
-
-Current_state (bool on/off)
-
-method :
--check model , have chang mode if it's pro model
-
-//do both model
--check Switch , open when switch on and have power
--change fan speed, high speed if dust more than 60 ; medium when 40 low when 20
-(auto)
--check Serial number, return Serial number
-
-//do in pro
--check mode; always high when max mode, always low when silent
-
-//do in special diy
-always high
-*/
-
 import java.util.Scanner;
 
 abstract public class AirPurifier
