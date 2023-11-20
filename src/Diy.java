@@ -10,6 +10,7 @@ public class Diy extends AirPurifier
     @Override
     protected void status()
     {
+        clear_terminal();
         System.out.println("Status\nFan speed: HIGH");
     }
 

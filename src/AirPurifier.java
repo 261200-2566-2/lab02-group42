@@ -108,6 +108,8 @@ abstract public class AirPurifier
         System.out.println("Now your Air Purifier was turned off");
     }
 
+    protected void clear_terminal(){System. out. print("\033[H\033[2J");}
+
     abstract protected void status();
 
     abstract protected void working();

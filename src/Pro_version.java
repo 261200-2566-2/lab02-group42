@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Pro_version extends AirPurifier
 {
-    private String mode_have[] = {"heal","auto","max"};
+    private String mode_have[] = {"Silent","Auto","MAX_SPEED"};
     private  String mode = mode_have[1];
 
     private int dust_value;
@@ -31,7 +31,7 @@ public class Pro_version extends AirPurifier
                 case 1 -> {close(); stop = true; power_set(false);}
                 case 2 -> {close(); stop = true;}
                 case 3 -> set_mode();
-                case 4 -> {}
+                case 4 -> feel_lot_of_dust();
                 case 5 -> status();
             }
 
@@ -42,7 +42,7 @@ public class Pro_version extends AirPurifier
     @Override
     protected void status()
     {
-
+        clear_terminal();
         System.out.println("\nStatus");
         System.out.println(about_me());
         System.out.println("Fan speed : "+fan_speed(mode));
@@ -96,13 +96,19 @@ public class Pro_version extends AirPurifier
 
     private void feel_lot_of_dust()
     {
+        Scanner input = new Scanner(System.in);
+
         if(mode.equals(mode_have[1]))
         {
-                
+            System.out.println("How many dust do you think now?");
+            if(input.hasNextInt())
+            {
+                dust_value = input.nextInt();
+                System.out.println("Current fan speed is : "+fan_speed(dust_value));
+            } 
+            else System.out.println("Int only, please");
         }
-
-        System.out.println("How many dust do you think now?");
-
-
+        else if (mode.equals(mode_have[0])) System.out.println("Fan speed HIGH only in Silent mode");
+        else System.out.println("Fan speed HIGH only in MAX_SPEED mode");
     }
 }
