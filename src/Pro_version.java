@@ -21,7 +21,7 @@ public class Pro_version extends AirPurifier
 
         while (!stop)
         {
-            System.out.println("what should you do: \nUnplug(1), turn off (2), Change mode(3), I think there are a lot of dust here(4), Check my status (5), Do nothing (else)");
+            System.out.println("what should you do: \nUnplug(1), turn off(2), Change mode(3), I think there are a lot of dust here(4), Check my status(5), Do nothing(else)");
 
             int result = 0;
             if(input_pro.hasNextInt()) result = input_pro.nextInt();
@@ -100,7 +100,7 @@ public class Pro_version extends AirPurifier
 
         System.out.println("I have 3 mode");
         // for(String i: mode_have) System.out.print(i+" ");
-        for(int i = 0; i < 3; i++) System.out.print(mode_have[i]+" ("+(i+1)+")");
+        for(int i = 0; i < 3; i++) System.out.print(mode_have[i]+"("+(i+1)+") ");
         System.out.println();
 
         if(input.hasNextInt()) result = input.nextInt();
