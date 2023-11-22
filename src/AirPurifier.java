@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 abstract public class AirPurifier
 {
+    private static int count = 0; //In case need to have class var and class method (run Main_in...method)
     private String model_name, serial_number;
     protected boolean current_state;
     protected boolean power;
@@ -13,6 +14,7 @@ abstract public class AirPurifier
         model_name = model;
         this.serial_number = serial_number;
 //        Scanner input = new Scanner(System.in);
+        count_method();
     }
 
     public String about_me()
@@ -73,9 +75,18 @@ abstract public class AirPurifier
         System.out.println("Now your Air Purifier turned off");
     }
 
-    protected void clear_terminal(){System. out. print("\033[H\033[2J");}
+    protected void clear_terminal(){System. out. print("\033[H\033[2J");} //Use in code runner's terminal
 
     abstract protected void status();
 
     abstract protected void working();
+
+    private static void count_method() //In case need to have class var and class method (run Main_in...method)
+    {
+        count += 1;
+    }
+    public  static int return_count() //In case need to have class var and class method (run Main_in...method)
+    {
+        return count;
+    }
 }
