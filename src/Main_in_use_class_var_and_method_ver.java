@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main
+class Main_in_use_class_var_and_method_ver
 {
     static AirPurifier item;
     static Scanner input_all = new Scanner(System.in);
@@ -12,26 +12,25 @@ class Main
         String sn = input.nextLine();
         return sn;
     }
-    public static void  choose()
+    public static boolean  choose()
     {
         Scanner input = new Scanner(System.in);
-        boolean input_ok = false;
-        while(!input_ok)
+        boolean running = true;
+        int result = 0;
+
+        System.out.println("choose your model\nStandard(1) Pro(2) DIY(3) Exit(else)");
+        if(input.hasNextInt()) result = input.nextInt();
+
+        switch (result)
         {
-            System.out.println("choose your model\nStandard(1) Pro(2) DIY(3)");
-            int result = 0;
-
-            if(input.hasNextInt()) result = input.nextInt();
-
-            switch (result)
-            {
-                case 1 -> {item = new Standard_Version("Standard Model",serial_number()); input_ok = true;}
-                case 2 -> {item = new Pro_version("Pro Model",serial_number()); input_ok = true;}
-                case 3 -> {item = new Diy("diy model"); input_ok = true;}
-                default -> System.out.println("1-3 in int only");
-            }
-            input.nextLine();
+            case 1 -> {item = new Standard_Version("Standard Model",serial_number());}
+            case 2 -> {item = new Pro_version("Pro Model",serial_number());}
+            case 3 -> {item = new Diy("diy model");}
+            default -> {System.out.println("Exit? Ok bye bye"); running = false;}
         }
+        input.nextLine();
+
+        return running;
     }
 
     static public void doing_something()
@@ -65,8 +64,16 @@ class Main
 
     public static void main(String[] args)
     {
-        choose();
-        doing_something();
+        boolean running;
+
+        do
+        {
+            running = choose();
+            if(running) doing_something();
+        }
+        while(running);
+
+        System.out.println("You choose AirPurifier "+AirPurifier.return_count()+" time");
         input_all.close();
     }
 }
