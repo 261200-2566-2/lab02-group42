@@ -24,7 +24,7 @@ public class Standard_Version extends AirPurifier
                 dust_value = check;
                 System.out.println("Current fan speed is : "+fan_speed(dust_value));
             }
-            else System.out.println("Negativ value?");
+            else System.out.println("Negative value?");
         } 
         else System.out.println("Int only, please");
     }
